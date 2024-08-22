@@ -117,16 +117,11 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 	{
 		HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0,&CAN1_pHeaderRx, CAN1_DATA_RX);
 	}
-//	HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0,&CAN2_pHeaderRx, CAN2_DATA_RX);
-//	if(CAN1_pHeaderRx.StdId == 0x0A2)
-//	{
-//		flg_CheckCan1Rx = 1;
-//	}
 }
 
 // Transmit data through Can protocol
-//void transmitDataCan1()
-//void transmitDataCan2();
+void transmitDataCan1();
+void transmitDataCan2();
 void printRequest();
 //void printResponse();
 //
@@ -518,18 +513,25 @@ void delay(uint16_t delay)
 	HAL_Delay(delay);
 }
 // CAN1 transmit and receive data
-//void transmitDataCan1()
-//{
-//
-//}
-//
+void transmitDataCan1()
+{
+	if (HAL_CAN_AddTxMessage(&hcan1, &CAN1_pHeaderTx, CAN1_DATA_TX, &CAN1_pTxMailbox) == HAL_OK)
+	{
+		flg_CheckCan2Rx = 1;
+	}
+	flg_CheckCan2Rx = 0;
+}
+
 //// CAN2 transmit and receive data
-//void transmitDataCan2()
-//{
-//
-//
-//}
-//
+void transmitDataCan2()
+{
+	if (HAL_CAN_AddTxMessage(&hcan2, &CAN2_pHeaderTx, CAN2_DATA_TX, &CAN2_pTxMailbox) == HAL_OK)
+	{
+		flg_CheckCan1Rx = 1;
+	}
+	flg_CheckCan2Rx = 0;
+}
+
 void SID_22_Practice()
 {
 	// Receive data from UART3 and process data to DATA_CAN1_TX
