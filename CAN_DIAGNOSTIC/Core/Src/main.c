@@ -83,7 +83,12 @@ uint8_t  Flg_Consecutive = 0;
 //flag check  Receive data
 uint8_t flg_CheckCan1Rx = 0;
 uint8_t flg_CheckCan2Rx = 0;
-
+// flg_NRC:
+// 1: wrong message
+// 2: DID not suport
+// 3: invaild key
+// 4: security access denied
+uint8_t flg_NRC = 0;
 unsigned int TimeStamp;
 // maximum characters send out via UART is 30
 char bufsend[30]="XXX: D1 D2 D3 D4 D5 D6 D7 D8  ";
@@ -554,8 +559,23 @@ void SID_22_Practice()
 	printRequest();
 	// Transmit to server(CAN2)
 	transmitDataCan1();
-	// Process request
-
+	// Process response data
+	if (CAN2_DATA_RX[0] != 0x03 | CAN2_DATA_RX[4] != 0x55)
+	{
+		flg_NRC = 1;
+	}else if (CAN2_DATA_RX[2] != 0x01 | CAN2_DATA_RX[3] != 0X23)
+	{
+		flg_NRC = 2;
+	}else
+	{
+		CAN2_DATA_RX[1] += 0x40;
+	}
+	for(uint8_t i = 0; i < 8; i++)
+	{
+		CAN2_DATA_TX[i] = CAN2_DATA_RX[i];
+	}
+	//transmit to tester and PC
+	printResponse();
 
 }
 //void SID_2E_Practice()
