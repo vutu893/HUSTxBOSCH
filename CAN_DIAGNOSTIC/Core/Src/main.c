@@ -49,6 +49,12 @@ UART_HandleTypeDef huart3;
 uint8_t uart3_receive;
 uint8_t data_uart3_receive[8] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00} ;
 
+//NRC
+uint8_t MESSAGE_WRONG = 0x13;
+uint8_t INVAILD_KEY = 0x35;
+uint8_t SECURITY_ACCESS_DENIED = 0x33;
+uint8_t DID_NOT_SUPORT = 0x31;
+
 CAN_HandleTypeDef hcan1;
 CAN_HandleTypeDef hcan2;
 CAN_TxHeaderTypeDef CAN1_pHeaderTx;
@@ -202,13 +208,21 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  //or use dicrectly HAL_UART_Receive_IT ?
 	  if(HAL_UART_Receive_IT(&huart3, &REQ_1BYTE_DATA, 1) == HAL_OK)
 	  {
 		  	if(REQ_BUFFER[0] == 0x22)
 		  	{
 		  		 SID_22_Practice();
-		  		 printRequest();
-		  		 delay(1000);
+		  		 delay(200);
+		  	}else if(REQ_BUFFER[0] == 0X27)
+		  	{
+		  		SID_27_Practice();
+		  		delay(200);
+		  	}else
+		  	{
+		  		SID_2E_Practice();
+		  		delay(200);
 		  	}
 	  }
 	  memset(&REQ_BUFFER,0x00,8);
@@ -526,13 +540,22 @@ void SID_22_Practice()
 {
 	// Receive data from UART3 and process data to DATA_CAN1_TX
 	CAN1_DATA_TX[0] = 0x03;
-	CAN1_DATA_TX[1] = REQ_BUFFER[0];
-	CAN1_DATA_TX[2] = REQ_BUFFER[1];
-	CAN1_DATA_TX[3] = REQ_BUFFER[2];
-	for(uint8_t i = 4; i < 8; i++)
+	for(uint8_t i = 1; i < 8; i++)
 	{
-		CAN1_DATA_TX[i] = 0x55;
+		if (REQ_BUFFER[i] != 0x00)
+		{
+			CAN1_DATA_TX[i] = REQ_BUFFER[i];
+		}else
+		{
+			CAN1_DATA_TX[i] = 0x55;
+		}
+
 	}
+	printRequest();
+	// Transmit to server(CAN2)
+	transmitDataCan1();
+	// Process request
+
 
 }
 //void SID_2E_Practice()
@@ -561,6 +584,10 @@ void printResponse()
 	USART3_SendString((uint8_t *) "\n");
 
 }
+// Process data for services
+// Transmit to server for services
+// Process response for services
+
 /* USER CODE END 4 */
 
 /**
