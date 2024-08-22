@@ -552,7 +552,10 @@ void SID_22_Practice()
 //	// Receive data from UART3 and process data to DATA_CAN1_TX
 //}
 //
-//// Print log request and response
+//// Print log request and response:
+// request: CAN1 receive from USART3 and store to CAN1_DATA_TX
+// response: be generated in CAN2 and via CAN communication be stored to CAN1_DATA_RX
+// use CAN because requirement: must have ID CAN2 in DATA response ?right?
 void printRequest()
 {
 	USART3_SendString((uint8_t *) "TESTER: ");
@@ -561,7 +564,10 @@ void printRequest()
 }
 void printResponse()
 {
-	USART3_Sen
+	USART3_SendString((uint8_t *) "Response: ");
+	PrintCANLog(CAN1_pHeaderRX.Stdid, CAN1_DATA_RX);
+	USART3_SendString((uint8_t *) "\n");
+
 }
 /* USER CODE END 4 */
 
