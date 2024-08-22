@@ -1,0 +1,1724 @@
+15:11:09 **** Incremental Build of configuration Debug for project BEA_CAN2CAN_DEMO_TEN1HC_HUST ****
+make -j16 all 
+arm-none-eabi-size  BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19680	    132	   6396	  26208	   6660	BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf
+Finished building: default.size.stdout
+ 
+15:13:29 **** Incremental Build of configuration Debug for project BEA_CAN2CAN_DEMO_TEN1HC_HUST ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:528:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  528 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:528:23: note: directive argument in the range [0, 65535]
+  528 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:528:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  528 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:539:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  539 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:539:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  539 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\HUSTxBOSCH\Document\Pratice\BEA_CAN2CAN_DEMO_TEN1HC_HUST\BEA_CAN2CAN_DEMO_TEN1HC_HUST\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BEA_CAN2CAN_DEMO_TEN1HC_HUST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf has a LOAD segment with RWX permissions
+Finished building target: BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf
+ 
+arm-none-eabi-size  BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf 
+arm-none-eabi-objdump -h -S BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf  > "BEA_CAN2CAN_DEMO_TEN1HC_HUST.list"
+arm-none-eabi-objcopy  -O ihex BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf  "BEA_CAN2CAN_DEMO_TEN1HC_HUST.hex"
+   text	   data	    bss	    dec	    hex	filename
+  19696	    132	   6396	  26224	   6670	BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf
+Finished building: default.size.stdout
+ 
+Finished building: BEA_CAN2CAN_DEMO_TEN1HC_HUST.hex
+ 
+Finished building: BEA_CAN2CAN_DEMO_TEN1HC_HUST.list
+ 
+15:24:22 **** Incremental Build of configuration Debug for project BEA_CAN2CAN_DEMO_TEN1HC_HUST ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:528:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  528 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:528:23: note: directive argument in the range [0, 65535]
+  528 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:528:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  528 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:539:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  539 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:539:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  539 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\HUSTxBOSCH\Document\Pratice\BEA_CAN2CAN_DEMO_TEN1HC_HUST\BEA_CAN2CAN_DEMO_TEN1HC_HUST\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BEA_CAN2CAN_DEMO_TEN1HC_HUST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf has a LOAD segment with RWX permissions
+Finished building target: BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf
+ 
+arm-none-eabi-size  BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf 
+arm-none-eabi-objdump -h -S BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf  > "BEA_CAN2CAN_DEMO_TEN1HC_HUST.list"
+arm-none-eabi-objcopy  -O ihex BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf  "BEA_CAN2CAN_DEMO_TEN1HC_HUST.hex"
+   text	   data	    bss	    dec	    hex	filename
+  19696	    132	   6396	  26224	   6670	BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf
+Finished building: default.size.stdout
+ 
+Finished building: BEA_CAN2CAN_DEMO_TEN1HC_HUST.hex
+ 
+Finished building: BEA_CAN2CAN_DEMO_TEN1HC_HUST.list
+ 
+15:29:27 **** Incremental Build of configuration Debug for project BEA_CAN2CAN_DEMO_TEN1HC_HUST ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:518:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  518 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:518:23: note: directive argument in the range [0, 65535]
+  518 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:518:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  518 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:529:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  529 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:529:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  529 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\HUSTxBOSCH\Document\Pratice\BEA_CAN2CAN_DEMO_TEN1HC_HUST\BEA_CAN2CAN_DEMO_TEN1HC_HUST\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BEA_CAN2CAN_DEMO_TEN1HC_HUST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf has a LOAD segment with RWX permissions
+Finished building target: BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf
+ 
+arm-none-eabi-size  BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf 
+arm-none-eabi-objdump -h -S BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf  > "BEA_CAN2CAN_DEMO_TEN1HC_HUST.list"
+arm-none-eabi-objcopy  -O ihex BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf  "BEA_CAN2CAN_DEMO_TEN1HC_HUST.hex"
+   text	   data	    bss	    dec	    hex	filename
+  19696	    132	   6396	  26224	   6670	BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf
+Finished building: default.size.stdout
+ 
+Finished building: BEA_CAN2CAN_DEMO_TEN1HC_HUST.hex
+ 
+Finished building: BEA_CAN2CAN_DEMO_TEN1HC_HUST.list
+ 
+15:39:36 **** Incremental Build of configuration Debug for project BEA_CAN2CAN_DEMO_TEN1HC_HUST ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:518:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  518 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:518:23: note: directive argument in the range [0, 65535]
+  518 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:518:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  518 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:529:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  529 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:529:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  529 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\HUSTxBOSCH\Document\Pratice\BEA_CAN2CAN_DEMO_TEN1HC_HUST\BEA_CAN2CAN_DEMO_TEN1HC_HUST\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BEA_CAN2CAN_DEMO_TEN1HC_HUST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf has a LOAD segment with RWX permissions
+Finished building target: BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf
+ 
+arm-none-eabi-size  BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf 
+arm-none-eabi-objdump -h -S BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf  > "BEA_CAN2CAN_DEMO_TEN1HC_HUST.list"
+   text	   data	    bss	    dec	    hex	filename
+  19696	    132	   6396	  26224	   6670	BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf
+arm-none-eabi-objcopy  -O ihex BEA_CAN2CAN_DEMO_TEN1HC_HUST.elf  "BEA_CAN2CAN_DEMO_TEN1HC_HUST.hex"
+Finished building: default.size.stdout
+ 
+Finished building: BEA_CAN2CAN_DEMO_TEN1HC_HUST.hex
+ 
+Finished building: BEA_CAN2CAN_DEMO_TEN1HC_HUST.list
+ 
+10:36:18 **** Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'CAN2_RX0_IRQHandler':
+../Core/Src/stm32f4xx_it.c:258:17: warning: unused variable 'NumByteSend' [-Wunused-variable]
+  258 |         uint8_t NumByteSend;
+      |                 ^~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:517:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  517 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:517:23: note: directive argument in the range [0, 65535]
+  517 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:517:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  517 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:528:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  528 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:528:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  528 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  19704	    132	   6396	  26232	   6678	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+10:58:39 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:49:9: error: conflicting types for 'uart3_receive'; have 'uint8_t[8]' {aka 'unsigned char[8]'}
+   49 | uint8_t uart3_receive[8];
+      |         ^~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:72:16: note: previous declaration of 'uart3_receive' with type 'uint8_t' {aka 'unsigned char'}
+   72 | extern uint8_t uart3_receive;
+      |                ^~~~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_GPIO_EXTI_Callback':
+../Core/Src/main.c:108:17: error: 'statusButton' undeclared (first use in this function)
+  108 |                 statusButton ^= 0x01;
+      |                 ^~~~~~~~~~~~
+../Core/Src/main.c:108:17: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:506:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  506 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:507:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  507 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:546:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  546 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+10:59:15 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:49:9: error: conflicting types for 'uart3_receive'; have 'uint8_t[8]' {aka 'unsigned char[8]'}
+   49 | uint8_t uart3_receive[8];
+      |         ^~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:72:16: note: previous declaration of 'uart3_receive' with type 'uint8_t' {aka 'unsigned char'}
+   72 | extern uint8_t uart3_receive;
+      |                ^~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:500:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  500 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:501:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  501 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:540:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  540 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+10:59:53 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:49:9: error: conflicting types for 'uart3_receive'; have 'uint8_t[]' {aka 'unsigned char[]'}
+   49 | uint8_t uart3_receive[];
+      |         ^~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:72:16: note: previous declaration of 'uart3_receive' with type 'uint8_t' {aka 'unsigned char'}
+   72 | extern uint8_t uart3_receive;
+      |                ^~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:500:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  500 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:501:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  501 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:540:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  540 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:01:03 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:49:9: error: conflicting types for 'uart3_receive'; have 'uint8_t[8]' {aka 'unsigned char[8]'}
+   49 | uint8_t uart3_receive[8];
+      |         ^~~~~~~~~~~~~
+In file included from ../Core/Src/main.c:20:
+../Core/Inc/main.h:72:16: note: previous declaration of 'uart3_receive' with type 'uint8_t' {aka 'unsigned char'}
+   72 | extern uint8_t uart3_receive;
+      |                ^~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:500:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  500 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:501:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  501 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:540:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  540 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:02:51 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:501:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  501 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:502:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  502 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:541:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  541 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:470:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  470 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:470:23: note: directive argument in the range [0, 65535]
+  470 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:470:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  470 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:481:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  481 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:481:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  481 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  15592	     20	   6044	  21656	   5498	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+11:16:24 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:493:6: error: redefinition of 'HAL_UART_RxCpltCallback'
+  493 | void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:141:6: note: previous definition of 'HAL_UART_RxCpltCallback' with type 'void(UART_HandleTypeDef *)' {aka 'void(struct __UART_HandleTypeDef *)'}
+  141 | void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+      |      ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:505:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  505 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:506:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  506 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:545:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  545 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:17:42 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:508:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  508 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:509:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  509 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:548:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  548 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:474:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  474 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:474:23: note: directive argument in the range [0, 65535]
+  474 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:474:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  474 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:485:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  485 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:485:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  485 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18620	    132	   6380	  25132	   622c	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+11:48:35 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:508:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  508 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:509:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  509 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:548:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  548 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:474:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  474 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:474:23: note: directive argument in the range [0, 65535]
+  474 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:474:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  474 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:485:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  485 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:485:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  485 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18584	    132	   2276	  20992	   5200	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+11:58:40 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'USART3_IRQHandler':
+../Core/Src/stm32f4xx_it.c:248:33: error: 'data_uart3' undeclared (first use in this function)
+  248 |   HAL_UART_Receive_IT(&huart3, &data_uart3, 8);
+      |                                 ^~~~~~~~~~
+../Core/Src/stm32f4xx_it.c:248:33: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/stm32f4xx_it.c: In function 'CAN2_RX0_IRQHandler':
+../Core/Src/stm32f4xx_it.c:258:17: warning: unused variable 'NumByteSend' [-Wunused-variable]
+  258 |         uint8_t NumByteSend;
+      |                 ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/stm32f4xx_it.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:508:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  508 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:509:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  509 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:548:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  548 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:474:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  474 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:474:23: note: directive argument in the range [0, 65535]
+  474 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:474:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  474 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:485:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  485 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:485:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  485 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:59:00 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'USART3_IRQHandler':
+../Core/Src/stm32f4xx_it.c:248:32: error: 'data_uart3' undeclared (first use in this function)
+  248 |   HAL_UART_Receive_IT(&huart3, data_uart3, 8);
+      |                                ^~~~~~~~~~
+../Core/Src/stm32f4xx_it.c:248:32: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/stm32f4xx_it.c: In function 'CAN2_RX0_IRQHandler':
+../Core/Src/stm32f4xx_it.c:258:17: warning: unused variable 'NumByteSend' [-Wunused-variable]
+  258 |         uint8_t NumByteSend;
+      |                 ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/stm32f4xx_it.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+11:59:51 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/dcm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm.d" -MT"Core/Src/dcm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm.o"
+arm-none-eabi-gcc "../Core/Src/dcm_rdbi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm_rdbi.d" -MT"Core/Src/dcm_rdbi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm_rdbi.o"
+arm-none-eabi-gcc "../Core/Src/dcm_seca.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm_seca.d" -MT"Core/Src/dcm_seca.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm_seca.o"
+arm-none-eabi-gcc "../Core/Src/dcm_wdbi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm_wdbi.d" -MT"Core/Src/dcm_wdbi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm_wdbi.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'CAN2_RX0_IRQHandler':
+../Core/Src/stm32f4xx_it.c:258:17: warning: unused variable 'NumByteSend' [-Wunused-variable]
+  258 |         uint8_t NumByteSend;
+      |                 ^~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:508:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  508 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:509:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  509 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:548:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  548 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:474:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  474 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:474:23: note: directive argument in the range [0, 65535]
+  474 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:474:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  474 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:485:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  485 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:485:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  485 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18584	    132	   2276	  20992	   5200	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+12:05:33 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/dcm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm.d" -MT"Core/Src/dcm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm.o"
+arm-none-eabi-gcc "../Core/Src/dcm_rdbi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm_rdbi.d" -MT"Core/Src/dcm_rdbi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm_rdbi.o"
+arm-none-eabi-gcc "../Core/Src/dcm_seca.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm_seca.d" -MT"Core/Src/dcm_seca.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm_seca.o"
+arm-none-eabi-gcc "../Core/Src/dcm_wdbi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm_wdbi.d" -MT"Core/Src/dcm_wdbi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm_wdbi.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:498:35: error: 'GPIO_Pin_0' undeclared (first use in this function); did you mean 'GPIO_PIN_0'?
+  498 |         HAL_GPIO_TogglePin(GPIOB, GPIO_Pin_0);
+      |                                   ^~~~~~~~~~
+      |                                   GPIO_PIN_0
+../Core/Src/main.c:498:35: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/stm32f4xx_it.c: In function 'CAN2_RX0_IRQHandler':
+../Core/Src/stm32f4xx_it.c:258:17: warning: unused variable 'NumByteSend' [-Wunused-variable]
+  258 |         uint8_t NumByteSend;
+      |                 ^~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:508:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  508 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:509:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  509 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:548:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  548 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+12:05:53 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:508:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  508 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:509:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  509 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:548:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  548 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:474:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  474 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:474:23: note: directive argument in the range [0, 65535]
+  474 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:474:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  474 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:485:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  485 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:485:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  485 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+   text	   data	    bss	    dec	    hex	filename
+  18580	    132	   2276	  20988	   51fc	CAN_DIAGNOSTIC.elf
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+12:32:38 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'CAN2_RX0_IRQHandler':
+../Core/Src/stm32f4xx_it.c:258:17: warning: unused variable 'NumByteSend' [-Wunused-variable]
+  258 |         uint8_t NumByteSend;
+      |                 ^~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18580	    132	   2276	  20988	   51fc	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+12:34:51 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'CAN2_RX0_IRQHandler':
+../Core/Src/stm32f4xx_it.c:258:17: warning: unused variable 'NumByteSend' [-Wunused-variable]
+  258 |         uint8_t NumByteSend;
+      |                 ^~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18580	    132	   2276	  20988	   51fc	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+13:08:32 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'CAN2_RX0_IRQHandler':
+../Core/Src/stm32f4xx_it.c:258:17: warning: unused variable 'NumByteSend' [-Wunused-variable]
+  258 |         uint8_t NumByteSend;
+      |                 ^~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:514:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  514 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:515:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  515 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:554:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  554 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:479:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  479 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:479:23: note: directive argument in the range [0, 65535]
+  479 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:479:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  479 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:490:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  490 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:490:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  490 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18612	    132	   2276	  21020	   521c	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+13:13:12 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:515:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  515 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:516:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  516 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:555:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  555 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:481:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  481 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:481:23: note: directive argument in the range [0, 65535]
+  481 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:481:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  481 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:492:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  492 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:492:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  492 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18312	    132	   2276	  20720	   50f0	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+13:15:12 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:515:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  515 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:516:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  516 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:555:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  555 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:480:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:480:23: note: directive argument in the range [0, 65535]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:480:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  480 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:491:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:491:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18316	    136	   2272	  20724	   50f4	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+13:17:29 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:519:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  519 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:520:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  520 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:559:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  559 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:480:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:480:23: note: directive argument in the range [0, 65535]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:480:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  480 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:491:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:491:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18328	    136	   2272	  20736	   5100	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+13:19:23 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:519:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  519 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:520:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  520 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:559:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  559 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:480:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:480:23: note: directive argument in the range [0, 65535]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:480:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  480 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:491:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:491:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18328	    136	   2272	  20736	   5100	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+13:21:46 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:519:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  519 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:520:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  520 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:559:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  559 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:480:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:480:23: note: directive argument in the range [0, 65535]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:480:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  480 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:491:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:491:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18408	    136	   2272	  20816	   5150	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+13:23:20 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:519:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  519 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:520:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  520 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:559:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  559 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:480:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:480:23: note: directive argument in the range [0, 65535]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:480:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  480 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:491:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:491:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18652	    136	   2272	  21060	   5244	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+13:42:30 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:519:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  519 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:520:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  520 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:559:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  559 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:480:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:480:23: note: directive argument in the range [0, 65535]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:480:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  480 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:491:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:491:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18340	    136	   2280	  20756	   5114	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+13:48:29 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18340	    136	   2280	  20756	   5114	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+13:50:46 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:519:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  519 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:520:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  520 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:559:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  559 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:480:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:480:23: note: directive argument in the range [0, 65535]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:480:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  480 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:491:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:491:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18336	    136	   2280	  20752	   5110	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+13:51:39 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'printLogNormal':
+../Core/Src/main.c:519:9: warning: implicit declaration of function 'setMessageTransmitFromCan1' [-Wimplicit-function-declaration]
+  519 |         setMessageTransmitFromCan1();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:520:9: warning: implicit declaration of function 'setMessageTransmitFromCan2' [-Wimplicit-function-declaration]
+  520 |         setMessageTransmitFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'printLogError':
+../Core/Src/main.c:559:9: warning: implicit declaration of function 'setMessageErrorFromCan2' [-Wimplicit-function-declaration]
+  559 |         setMessageErrorFromCan2();
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:480:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:480:23: note: directive argument in the range [0, 65535]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:480:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  480 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:491:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:491:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18336	    136	   2280	  20752	   5110	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+14:32:11 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/dcm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm.d" -MT"Core/Src/dcm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm.o"
+arm-none-eabi-gcc "../Core/Src/dcm_rdbi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm_rdbi.d" -MT"Core/Src/dcm_rdbi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm_rdbi.o"
+arm-none-eabi-gcc "../Core/Src/dcm_seca.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm_seca.d" -MT"Core/Src/dcm_seca.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm_seca.o"
+arm-none-eabi-gcc "../Core/Src/dcm_wdbi.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/dcm_wdbi.d" -MT"Core/Src/dcm_wdbi.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/dcm_wdbi.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+../Core/Src/stm32f4xx_it.c: In function 'CAN2_RX0_IRQHandler':
+../Core/Src/stm32f4xx_it.c:258:17: warning: unused variable 'NumByteSend' [-Wunused-variable]
+  258 |         uint8_t NumByteSend;
+      |                 ^~~~~~~~~~~
+../Core/Src/main.c: In function 'transmitDataCan1':
+../Core/Src/main.c:134:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  134 | {
+      | ^
+../Core/Src/main.c:150:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  150 | {
+      | ^
+../Core/Src/main.c:233:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  233 | {
+      | ^
+../Core/Src/main.c:280:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  280 | {
+      | ^
+../Core/Src/main.c:326:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  326 | {
+      | ^
+../Core/Src/main.c:372:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  372 | {
+      | ^
+../Core/Src/main.c:405:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  405 | {
+      | ^
+../Core/Src/main.c:447:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  447 | {
+      | ^
+../Core/Src/main.c:454:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  454 | {
+      | ^
+../Core/Src/main.c:462:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  462 | {
+      | ^
+../Core/Src/main.c:470:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  470 | {
+      | ^
+../Core/Src/main.c:500:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  500 | {
+      | ^
+../Core/Src/main.c:514:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  514 | {
+      | ^
+../Core/Src/main.c:519:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  519 | {
+      | ^
+../Core/Src/main.c:525:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  525 | {
+      | ^
+../Core/Src/main.c:531:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  531 | {
+      | ^
+../Core/Src/main.c:536:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  536 | {
+      | ^
+../Core/Src/main.c:540:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  540 | {
+      | ^
+../Core/Src/main.c:546:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  546 | {
+      | ^
+../Core/Src/main.c:550:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  550 | {
+      | ^
+../Core/Src/main.c:560:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  560 | {
+      | ^
+../Core/Src/main.c:130:6: error: declaration for parameter 'printResponse' but no such parameter
+  130 | void printResponse();
+      |      ^~~~~~~~~~~~~
+../Core/Src/main.c:129:6: error: declaration for parameter 'printRequest' but no such parameter
+  129 | void printRequest();
+      |      ^~~~~~~~~~~~
+../Core/Src/main.c:128:6: error: declaration for parameter 'transmitDataCan2' but no such parameter
+  128 | void transmitDataCan2();
+      |      ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:587: error: expected '{' at end of input
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:87:13: warning: 'MX_GPIO_Init' declared 'static' but never defined [-Wunused-function]
+   87 | static void MX_GPIO_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:88:13: warning: 'MX_CAN1_Init' declared 'static' but never defined [-Wunused-function]
+   88 | static void MX_CAN1_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:89:13: warning: 'MX_CAN2_Init' declared 'static' but never defined [-Wunused-function]
+   89 | static void MX_CAN2_Init(void);
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:90:13: warning: 'MX_USART3_UART_Init' declared 'static' but never defined [-Wunused-function]
+   90 | static void MX_USART3_UART_Init(void);
+      |             ^~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:33:58 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'receiveITWithVariableLengthData':
+../Core/Src/main.c:135:38: error: 'data_uart3' undeclared (first use in this function)
+  135 |         HAL_UART_Receive_IT(&huart3, data_uart3, size);
+      |                                      ^~~~~~~~~~
+../Core/Src/main.c:135:38: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:213:20: error: 'data_uart_receive' undeclared (first use in this function); did you mean 'data_uart3_receive'?
+  213 |           }else if(data_uart_receive[0] = 0x27)
+      |                    ^~~~~~~~~~~~~~~~~
+      |                    data_uart3_receive
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:511:29: error: 'data_uart3' undeclared (first use in this function)
+  511 |         PrintCANLog(0x0012, data_uart3);
+      |                             ^~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:34:16 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'receiveITWithVariableLengthData':
+../Core/Src/main.c:135:38: error: 'data_uart3' undeclared (first use in this function)
+  135 |         HAL_UART_Receive_IT(&huart3, data_uart3, size);
+      |                                      ^~~~~~~~~~
+../Core/Src/main.c:135:38: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:213:20: error: 'data_uart_receive' undeclared (first use in this function); did you mean 'data_uart3_receive'?
+  213 |           }else if(data_uart_receive[0] = 0x27)
+      |                    ^~~~~~~~~~~~~~~~~
+      |                    data_uart3_receive
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:35:13 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'receiveITWithVariableLengthData':
+../Core/Src/main.c:135:38: error: 'data_uart3' undeclared (first use in this function)
+  135 |         HAL_UART_Receive_IT(&huart3, data_uart3, size);
+      |                                      ^~~~~~~~~~
+../Core/Src/main.c:135:38: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:511:29: error: 'data_uart_receive' undeclared (first use in this function); did you mean 'data_uart3_receive'?
+  511 |         PrintCANLog(0x0012, data_uart_receive);
+      |                             ^~~~~~~~~~~~~~~~~
+      |                             data_uart3_receive
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:35:28 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:511:29: error: 'data_uart_receive' undeclared (first use in this function); did you mean 'data_uart3_receive'?
+  511 |         PrintCANLog(0x0012, data_uart_receive);
+      |                             ^~~~~~~~~~~~~~~~~
+      |                             data_uart3_receive
+../Core/Src/main.c:511:29: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+14:35:41 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:480:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:480:23: note: directive argument in the range [0, 65535]
+  480 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:480:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  480 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:491:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:491:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  491 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  17964	    132	   2276	  20372	   4f94	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+15:09:17 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:481:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  481 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:481:23: note: directive argument in the range [0, 65535]
+  481 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:481:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  481 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:492:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  492 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:492:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  492 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  17964	    132	   2276	  20372	   4f94	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+15:20:01 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:214:19: warning: implicit declaration of function 'UART3_SendString'; did you mean 'USART3_SendString'? [-Wimplicit-function-declaration]
+  214 |                   UART3_SendString((uint8_t *) "TESTER: ");
+      |                   ^~~~~~~~~~~~~~~~
+      |                   USART3_SendString
+../Core/Src/main.c:215:66: error: expected ';' before '}' token
+  215 |                   PrintCANLog(CAN1_pHeaderTx.StdId, CAN1_DATA_TX)
+      |                                                                  ^
+      |                                                                  ;
+  216 | 
+  217 |           }
+      |           ~                                                       
+make: *** [Core/Src/subdir.mk:46: Core/Src/main.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+15:20:09 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:214:19: warning: implicit declaration of function 'UART3_SendString'; did you mean 'USART3_SendString'? [-Wimplicit-function-declaration]
+  214 |                   UART3_SendString((uint8_t *) "TESTER: ");
+      |                   ^~~~~~~~~~~~~~~~
+      |                   USART3_SendString
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:478:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  478 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:478:23: note: directive argument in the range [0, 65535]
+  478 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:478:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  478 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:489:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  489 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:489:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  489 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Core/Src/main.o: in function `main':
+C:/Users/vipga/STM32CubeIDE/workspace_1.16.0/CAN_DIAGNOSTIC/Debug/../Core/Src/main.c:214: undefined reference to `UART3_SendString'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:67: CAN_DIAGNOSTIC.elf] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+15:21:08 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:478:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  478 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:478:23: note: directive argument in the range [0, 65535]
+  478 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:478:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  478 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:489:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  489 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:489:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  489 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+   text	   data	    bss	    dec	    hex	filename
+  18116	    132	   2284	  20532	   5034	CAN_DIAGNOSTIC.elf
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+15:24:50 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:483:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:483:23: note: directive argument in the range [0, 65535]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:483:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  483 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:494:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:494:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18244	    132	   2284	  20660	   50b4	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+15:25:02 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  18244	    132	   2284	  20660	   50b4	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+15:28:03 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:483:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:483:23: note: directive argument in the range [0, 65535]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:483:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  483 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:494:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:494:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18244	    132	   2284	  20660	   50b4	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+15:30:19 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:483:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:483:23: note: directive argument in the range [0, 65535]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:483:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  483 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:494:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:494:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+   text	   data	    bss	    dec	    hex	filename
+  18252	    132	   2284	  20668	   50bc	CAN_DIAGNOSTIC.elf
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+15:32:15 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:482:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  482 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:482:23: note: directive argument in the range [0, 65535]
+  482 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:482:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  482 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:493:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  493 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:493:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  493 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18252	    132	   2284	  20668	   50bc	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+15:34:20 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:482:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  482 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:482:23: note: directive argument in the range [0, 65535]
+  482 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:482:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  482 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:493:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  493 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:493:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  493 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18224	    132	   2284	  20640	   50a0	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+15:35:47 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:483:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:483:23: note: directive argument in the range [0, 65535]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:483:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  483 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:494:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:494:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+   text	   data	    bss	    dec	    hex	filename
+  18232	    132	   2284	  20648	   50a8	CAN_DIAGNOSTIC.elf
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+15:39:43 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:483:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:483:23: note: directive argument in the range [0, 65535]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:483:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  483 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:494:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:494:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+   text	   data	    bss	    dec	    hex	filename
+  18240	    132	   2284	  20656	   50b0	CAN_DIAGNOSTIC.elf
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+ 
+Finished building: CAN_DIAGNOSTIC.list
+ 
+15:42:56 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:483:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:483:23: note: directive argument in the range [0, 65535]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:483:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  483 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:494:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:494:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+   text	   data	    bss	    dec	    hex	filename
+  18232	    132	   2284	  20648	   50a8	CAN_DIAGNOSTIC.elf
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+Finished building: CAN_DIAGNOSTIC.list
+ 
+ 

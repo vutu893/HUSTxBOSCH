@@ -1,0 +1,37 @@
+15:42:56 **** Incremental Build of configuration Debug for project CAN_DIAGNOSTIC ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F405xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'PrintCANLog':
+../Core/Src/main.c:483:24: warning: '%03X' directive writing between 3 and 4 bytes into a region of size 3 [-Wformat-overflow=]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                        ^~~~
+../Core/Src/main.c:483:23: note: directive argument in the range [0, 65535]
+  483 |         sprintf(bufID,"%03X",CANID);
+      |                       ^~~~~~
+../Core/Src/main.c:483:9: note: 'sprintf' output between 4 and 5 bytes into a destination of size 3
+  483 |         sprintf(bufID,"%03X",CANID);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:494:37: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                                     ^
+../Core/Src/main.c:494:17: note: 'sprintf' output 3 bytes into a destination of size 2
+  494 |                 sprintf(bufDat,"%02X",CAN_Frame[loopIndx]);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "CAN_DIAGNOSTIC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\vipga\STM32CubeIDE\workspace_1.16.0\CAN_DIAGNOSTIC\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_DIAGNOSTIC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.16.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.200.202406191623/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CAN_DIAGNOSTIC.elf has a LOAD segment with RWX permissions
+Finished building target: CAN_DIAGNOSTIC.elf
+ 
+arm-none-eabi-size  CAN_DIAGNOSTIC.elf 
+arm-none-eabi-objdump -h -S CAN_DIAGNOSTIC.elf  > "CAN_DIAGNOSTIC.list"
+   text	   data	    bss	    dec	    hex	filename
+  18232	    132	   2284	  20648	   50a8	CAN_DIAGNOSTIC.elf
+arm-none-eabi-objcopy  -O ihex CAN_DIAGNOSTIC.elf  "CAN_DIAGNOSTIC.hex"
+Finished building: default.size.stdout
+ 
+Finished building: CAN_DIAGNOSTIC.hex
+Finished building: CAN_DIAGNOSTIC.list
+ 
+ 
+
+15:42:57 Build Finished. 0 errors, 3 warnings. (took 819ms)
+
