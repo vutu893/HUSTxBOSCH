@@ -60,8 +60,8 @@ CAN_FilterTypeDef CAN2_sFilterConfig;
 uint32_t CAN1_pTxMailbox;
 uint32_t CAN2_pTxMailbox;
 
-uint16_t NumBytesReq = 1;
-uint8_t  REQ_BUFFER  [4096];
+uint16_t NumBytesReq = 0;
+uint8_t  REQ_BUFFER[8];
 uint8_t  REQ_1BYTE_DATA;
 uint8_t sizedata;
 uint8_t flg_check_receive_data = 0;
@@ -202,23 +202,19 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if(HAL_UART_Receive_IT(&huart3, data_uart3_receive, 8) == HAL_OK)
+	  if(HAL_UART_Receive_IT(&huart3, &REQ_1BYTE_DATA, 1) == HAL_OK)
 	  {
-		  if(flg_check_receive_data)
-		  	  {
-		  		  if(data_uart3_receive[0] == 0x22)
-		  		  {
-		  		  	SID_22_Practice();
-		  		  	printRequest();
-		  		  	delay(1000);
-		  		  }
-		  	  }
+		  	if(REQ_BUFFER[0] == 0x22)
+		  	{
+		  		 SID_22_Practice();
+		  		 printRequest();
+		  		 delay(1000);
+		  	}
 	  }
-	  flg_check_receive_data = 0;
-  }
+	  memset(&REQ_BUFFER,0x00,8);
+	  NumBytesReq = 0;
 
-  memset(&REQ_BUFFER,0x00,4096);
-  NumBytesReq = 0;
+  }
 
   /* USER CODE END 3 */
 }
@@ -496,17 +492,11 @@ void PrintCANLog(uint16_t CANID, uint8_t * CAN_Frame)
 }
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-//	REQ_BUFFER[NumBytesReq] = REQ_1BYTE_DATA;
-//	NumBytesReq++;
+	REQ_BUFFER[NumBytesReq] = REQ_1BYTE_DATA;
+	NumBytesReq++;
 	//REQ_BUFFER[7] = NumBytesReq;
-//	NumBytesReq++;
-//	if (NumBytesReq > 8)
-//	{
-//		NumBytesReq = 1;
-//	}
-//	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
-//	delay(100);
-	flg_check_receive_data = 1;
+	NumBytesReq++;
+	HAL_UART_Receive_IT(&huart3, &REQ_1BYTE_DATA, 1);
 }
 void delay(uint16_t delay)
 {
@@ -536,9 +526,9 @@ void SID_22_Practice()
 {
 	// Receive data from UART3 and process data to DATA_CAN1_TX
 	CAN1_DATA_TX[0] = 0x03;
-	CAN1_DATA_TX[1] = data_uart3_receive[0];
-	CAN1_DATA_TX[2] = data_uart3_receive[1];
-	CAN1_DATA_TX[3] = data_uart3_receive[2];
+	CAN1_DATA_TX[1] = REQ_BUFFER[0];
+	CAN1_DATA_TX[2] = REQ_BUFFER[1];
+	CAN1_DATA_TX[3] = REQ_BUFFER[2];
 	for(uint8_t i = 4; i < 8; i++)
 	{
 		CAN1_DATA_TX[i] = 0x55;
@@ -567,7 +557,7 @@ void printRequest()
 void printResponse()
 {
 	USART3_SendString((uint8_t *) "Response: ");
-	PrintCANLog(CAN1_pHeaderRX.Stdid, CAN1_DATA_RX);
+	PrintCANLog(CAN1_pHeaderRx.StdId, CAN1_DATA_RX);
 	USART3_SendString((uint8_t *) "\n");
 
 }
