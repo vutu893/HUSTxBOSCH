@@ -127,7 +127,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 // Transmit data through Can protocol
 //void transmitDataCan1()
 //void transmitDataCan2();
-//void printRequest();
+void printRequest();
 //void printResponse();
 //
 
@@ -214,9 +214,7 @@ int main(void)
 		  		  if(data_uart3_receive[0] == 0x22)
 		  		  {
 		  		  	SID_22_Practice();
-		  		  	USART3_SendString((uint8_t *) "TESTER: ");
-		  		  	PrintCANLog(CAN1_pHeaderTx.StdId, CAN1_DATA_TX);
-		  		  	USART3_SendString((uint8_t *) "\n");
+		  		  	printRequest();
 		  		  	delay(1000);
 		  		  }
 		  	  }
@@ -555,14 +553,16 @@ void SID_22_Practice()
 //}
 //
 //// Print log request and response
-//void printRequest()
-//{
-//
-//}
-//void printResponse()
-//{
-//
-//}
+void printRequest()
+{
+	USART3_SendString((uint8_t *) "TESTER: ");
+	PrintCANLog(CAN1_pHeaderTx.StdId, CAN1_DATA_TX);
+	USART3_SendString((uint8_t *) "\n");
+}
+void printResponse()
+{
+	USART3_Sen
+}
 /* USER CODE END 4 */
 
 /**
