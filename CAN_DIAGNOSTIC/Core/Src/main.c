@@ -55,6 +55,13 @@ uint8_t INVAILD_KEY = 0x35;
 uint8_t SECURITY_ACCESS_DENIED = 0x33;
 uint8_t DID_NOT_SUPORT = 0x31;
 
+//KEY AND SEED FOR SERVICE 27
+uint8_t KEY_SERVER[4] = {0x10, 0x22, 0x76, 0x44};
+uint8_t SEED_SERVER[4];
+uint8_t KEY_CLIENT[4];
+uint8_t SEED_SERVER[4] = {0x01, 0x11, 0x33, 0x45};
+
+//
 CAN_HandleTypeDef hcan1;
 CAN_HandleTypeDef hcan2;
 CAN_TxHeaderTypeDef CAN1_pHeaderTx;
@@ -130,12 +137,14 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 	}
 }
 
-// Transmit data through Can protocol
+// Transmit data through Can protocol and UART
 void transmitDataCan1();
 void transmitDataCan2();
 void printRequest();
+void printResponse();
 //void printResponse();
-//
+//Process data response
+void dataResponseErrorService22 (uint8_t* flg);
 
 void receiveITWithVariableLengthData(uint8_t size)
 {
@@ -206,7 +215,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   // Example Function to print can message via uart
   //PrintCANLog(CAN1_pHeader.StdId, &CAN1_DATA_TX)
-  HAL_UART_Receive_IT(&huart3, data_uart3_receive, 8);
   while (1)
   {
 
@@ -214,21 +222,12 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 	  //or use dicrectly HAL_UART_Receive_IT ?
-	  if(HAL_UART_Receive_IT(&huart3, &REQ_1BYTE_DATA, 1) == HAL_OK)
+	  HAL_UART_Receive_IT(&huart3, &REQ_1BYTE_DATA, 1);
+	  delay(2000);
+	  if(REQ_BUFFER[0] == 0x22)
 	  {
-		  	if(REQ_BUFFER[0] == 0x22)
-		  	{
-		  		 SID_22_Practice();
-		  		 delay(200);
-		  	}else if(REQ_BUFFER[0] == 0X27)
-		  	{
-		  		SID_27_Practice();
-		  		delay(200);
-		  	}else
-		  	{
-		  		SID_2E_Practice();
-		  		delay(200);
-		  	}
+		  SID_22_Practice();
+		  delay(200);
 	  }
 	  memset(&REQ_BUFFER,0x00,8);
 	  NumBytesReq = 0;
@@ -513,8 +512,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	REQ_BUFFER[NumBytesReq] = REQ_1BYTE_DATA;
 	NumBytesReq++;
-	//REQ_BUFFER[7] = NumBytesReq;
-	NumBytesReq++;
+	REQ_BUFFER[7] = NumBytesReq;
+//	USART3_SendString((uint8_t *) REQ_1BYTE_DATA);
 	HAL_UART_Receive_IT(&huart3, &REQ_1BYTE_DATA, 1);
 }
 void delay(uint16_t delay)
@@ -538,45 +537,52 @@ void transmitDataCan2()
 	{
 		flg_CheckCan1Rx = 1;
 	}
-	flg_CheckCan2Rx = 0;
+	flg_CheckCan1Rx = 0;
 }
 
 void SID_22_Practice()
 {
 	// Receive data from UART3 and process data to DATA_CAN1_TX
-	CAN1_DATA_TX[0] = 0x03;
+	CAN1_DATA_TX[0] = REQ_BUFFER[7];
 	for(uint8_t i = 1; i < 8; i++)
 	{
-		if (REQ_BUFFER[i] != 0x00)
+		if (REQ_BUFFER[i - 1] != 0x00)
 		{
-			CAN1_DATA_TX[i] = REQ_BUFFER[i];
+			CAN1_DATA_TX[i] = REQ_BUFFER[i - 1];
 		}else
 		{
 			CAN1_DATA_TX[i] = 0x55;
 		}
 
 	}
+	delay(500);
 	printRequest();
 	// Transmit to server(CAN2)
 	transmitDataCan1();
-	// Process response data
-	if (CAN2_DATA_RX[0] != 0x03 | CAN2_DATA_RX[4] != 0x55)
+	PrintCANLog(CAN2_pHeaderRx.StdId, CAN2_DATA_RX);
+	// Process response data;
+	if (CAN1_DATA_TX[0] != 0x03 || CAN1_DATA_TX[4] != 0x55)
 	{
 		flg_NRC = 1;
-	}else if (CAN2_DATA_RX[2] != 0x01 | CAN2_DATA_RX[3] != 0X23)
+		dataResponseErrorService22 (&flg_NRC);
+	}else if (CAN1_DATA_TX[2] != 0x01 || CAN1_DATA_TX[3] != 0x23)
 	{
 		flg_NRC = 2;
+		dataResponseErrorService22 (&flg_NRC);
 	}else
 	{
-		CAN2_DATA_RX[1] += 0x40;
+		dataResponseErrorService22 (&flg_NRC);
 	}
 	for(uint8_t i = 0; i < 8; i++)
 	{
 		CAN2_DATA_TX[i] = CAN2_DATA_RX[i];
 	}
 	//transmit to tester and PC
+	transmitDataCan2();
+	delay(500);
 	printResponse();
-
+	memset(&CAN1_DATA_RX, 0x00, 8);
+	memset(&CAN2_DATA_RX, 0x00, 8);
 }
 //void SID_2E_Practice()
 //{
@@ -591,15 +597,33 @@ void SID_22_Practice()
 // request: CAN1 receive from USART3 and store to CAN1_DATA_TX
 // response: be generated in CAN2 and via CAN communication be stored to CAN1_DATA_RX
 // use CAN because requirement: must have ID CAN2 in DATA response ?right?
+//uint8_t getLengthDataService(uint8_t* data)
+//{
+//	uint8_t cnt = 8;
+//	uint8_t ans = 0;
+//	while(cnt < 8)
+//	{
+//		if(*data != 0x55)
+//		{
+//			ans++;
+//		}
+//
+//	}
+//}
+//
+////padding
+//void paddingData(uint8_t quantityPadding, uint8_t * data)
+//{
+//
+//}
 void printRequest()
 {
 	USART3_SendString((uint8_t *) "TESTER: ");
 	PrintCANLog(CAN1_pHeaderTx.StdId, CAN1_DATA_TX);
-	USART3_SendString((uint8_t *) "\n");
 }
 void printResponse()
 {
-	USART3_SendString((uint8_t *) "Response: ");
+	USART3_SendString((uint8_t *) "--> Response: ");
 	PrintCANLog(CAN1_pHeaderRx.StdId, CAN1_DATA_RX);
 	USART3_SendString((uint8_t *) "\n");
 
@@ -607,7 +631,39 @@ void printResponse()
 // Process data for services
 // Transmit to server for services
 // Process response for services
-
+void dataResponseErrorService22 (uint8_t* flg)
+{
+	if (*flg == 1)
+	{
+		CAN2_DATA_RX[0] = 0x03;
+		CAN2_DATA_RX[1] = 0x7F;
+		CAN2_DATA_RX[2] = 0x22;
+		CAN2_DATA_RX[3] = 0x13;
+		CAN2_DATA_RX[4] = 0x55;
+		CAN2_DATA_RX[5] = 0x55;
+		CAN2_DATA_RX[6] = 0x55;
+		CAN2_DATA_RX[7] = 0x55;
+	}else if(*flg == 2)
+	{
+		CAN2_DATA_RX[0] = 0x03;
+		CAN2_DATA_RX[1] = 0x7F;
+		CAN2_DATA_RX[2] = 0x22;
+		CAN2_DATA_RX[3] = 0x31;
+		CAN2_DATA_RX[4] = 0x55;
+		CAN2_DATA_RX[5] = 0x55;
+		CAN2_DATA_RX[6] = 0x55;
+		CAN2_DATA_RX[7] = 0x55;
+	}else
+	{
+		CAN2_DATA_RX[1] += 0x40;
+		CAN2_DATA_RX[0] = 0x05;
+		CAN2_DATA_RX[4] = (uint8_t)((CAN2_pHeaderTx.StdId >> 8) & 0x00FF);
+		CAN2_DATA_RX[5] = (uint8_t)(CAN2_pHeaderTx.StdId & 0x00FF);
+	}
+	*flg = 0;
+}
+// Get SEED from Server
+// Generate key
 /* USER CODE END 4 */
 
 /**
