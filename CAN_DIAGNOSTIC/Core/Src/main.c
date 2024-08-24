@@ -54,6 +54,12 @@ uint8_t MESSAGE_WRONG = 0x13;
 uint8_t INVAILD_KEY = 0x35;
 uint8_t SECURITY_ACCESS_DENIED = 0x33;
 uint8_t DID_NOT_SUPORT = 0x31;
+uint8_t RESPONSE_NEGATIVE = 0x7F;
+
+// SERVICES
+uint8_t SERVICEID_$22 = 0x22;
+uint8_t SERVICEID_$2E = 0x2E;
+uint8_t SERVICEID_$27 = 0x27;
 
 //KEY AND SEED FOR SERVICE 27
 uint8_t KEY_SERVER[4] = {0x10, 0x22, 0x76, 0x44};
@@ -99,6 +105,7 @@ uint8_t flg_CheckCan2Rx = 0;
 // 3: invaild key
 // 4: security access denied
 uint8_t flg_NRC = 0;
+
 uint8_t flg_Access_Security = 0;
 uint8_t flg_Access_Security_Service2E = 0;
 
@@ -124,6 +131,7 @@ void SID_22_Practice();
 void SID_2E_Practice();
 void SID_27_Practice();
 void delay(uint16_t delay);
+void getDataViaUart3AndPrint();
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -161,7 +169,8 @@ uint8_t get_Flg_Check_Key();
 void generate_Key_Client();
 void get_Seed_Server();
 void updateNewID();
-
+void paddingRule(uint8_t lengthPadding);
+void securityAccessUnlock();
 /* USER CODE END 0 */
 
 /**
@@ -251,12 +260,10 @@ int main(void)
 		  SID_27_Practice();
 		  if (flg_Access_Security)
 		  {
-			  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, 1);
-			  delay(5000);
-			  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, 0);
-			  delay(1000);
+			  securityAccessUnlock();
 			  flg_Access_Security = 0;
 			  flg_Access_Security_Service2E = 1;
+			  Flg_Consecutive = 1;
 		  }
 		  delay(200);
 	  }else
@@ -589,24 +596,7 @@ void transmitDataCan2()
 
 void SID_22_Practice()
 {
-	// Receive data from UART3 and process data to DATA_CAN1_TX
-	CAN1_DATA_TX[0] = REQ_BUFFER[7];
-	for(uint8_t i = 1; i < 8; i++)
-	{
-		if (REQ_BUFFER[i - 1] != 0x00)
-		{
-			CAN1_DATA_TX[i] = REQ_BUFFER[i - 1];
-		}else
-		{
-			CAN1_DATA_TX[i] = 0x55;
-		}
-
-	}
-	delay(500);
-	printRequest();
-	// Transmit to server(CAN2)
-	transmitDataCan1();
-	PrintCANLog(CAN2_pHeaderRx.StdId, CAN2_DATA_RX);
+	getDataViaUart3AndPrint();
 	// Process response data;
 	if (CAN1_DATA_TX[0] != 0x03 || CAN1_DATA_TX[4] != 0x55)
 	{
@@ -633,24 +623,7 @@ void SID_22_Practice()
 }
 void SID_2E_Practice()
 {
-	// Receive data from UART3 and process data to DATA_CAN1_TX
-	CAN1_DATA_TX[0] = REQ_BUFFER[7];
-	for(uint8_t i = 1; i < 8; i++)
-	{
-		if (REQ_BUFFER[i - 1] != 0x00)
-		{
-			CAN1_DATA_TX[i] = REQ_BUFFER[i - 1];
-		}else
-		{
-			CAN1_DATA_TX[i] = 0x55;
-		}
-
-	}
-	delay(500);
-	printRequest();
-	// Transmit to server(CAN2)
-	transmitDataCan1();
-	PrintCANLog(CAN2_pHeaderRx.StdId, CAN2_DATA_RX);
+	getDataViaUart3AndPrint();
 	// Process data
 	if (flg_Access_Security_Service2E)
 	{
@@ -691,28 +664,10 @@ void SID_2E_Practice()
 }
 void SID_27_Practice()
 {
-	// Receive data from UART3 and process data to DATA_CAN1_TX
-	CAN1_DATA_TX[0] = REQ_BUFFER[7];
-	for(uint8_t i = 1; i < 8; i++)
-	{
-		if (REQ_BUFFER[i - 1] != 0x00)
-		{
-			CAN1_DATA_TX[i] = REQ_BUFFER[i - 1];
-		}else
-		{
-			CAN1_DATA_TX[i] = 0x55;
-		}
-
-	}
-	delay(500);
-	printRequest();
-	// Transmit to server(CAN2)
-	transmitDataCan1();
-	PrintCANLog(CAN2_pHeaderRx.StdId, CAN2_DATA_RX);
+	getDataViaUart3AndPrint();
 	// Process response data: when send wrong request ==> back first status
 	if (Num_Consecutive_Tester == 1)
 	{
-		HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, 1);
 		if(CAN1_DATA_TX[0] != 0x02 || CAN1_DATA_TX[2] != 0x01)
 		{
 			flg_NRC = 1;
@@ -756,9 +711,12 @@ void SID_27_Practice()
 		CAN2_DATA_TX[i] = CAN2_DATA_RX[i];
 	}
 	//transmit to tester and PC
-	transmitDataCan2();
-	delay(500);
-	printResponse();
+	if (Flg_Consecutive == 0)
+	{
+		transmitDataCan2();
+		delay(500);
+		printResponse();
+	}
 	memset(&CAN1_DATA_RX, 0x00, 8);
 	memset(&CAN2_DATA_RX, 0x00, 8);
 }
@@ -792,23 +750,17 @@ void getDataResponseService22 (uint8_t* flg)
 	if (*flg == 1)
 	{
 		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = 0x7F;
-		CAN2_DATA_RX[2] = 0x22;
-		CAN2_DATA_RX[3] = 0x13;
-		CAN2_DATA_RX[4] = 0x55;
-		CAN2_DATA_RX[5] = 0x55;
-		CAN2_DATA_RX[6] = 0x55;
-		CAN2_DATA_RX[7] = 0x55;
+		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
+		CAN2_DATA_RX[2] = SERVICEID_$22;
+		CAN2_DATA_RX[3] = MESSAGE_WRONG;
+		paddingRule(4);
 	}else if(*flg == 2)
 	{
 		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = 0x7F;
-		CAN2_DATA_RX[2] = 0x22;
-		CAN2_DATA_RX[3] = 0x31;
-		CAN2_DATA_RX[4] = 0x55;
-		CAN2_DATA_RX[5] = 0x55;
-		CAN2_DATA_RX[6] = 0x55;
-		CAN2_DATA_RX[7] = 0x55;
+		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
+		CAN2_DATA_RX[2] = SERVICEID_$22;
+		CAN2_DATA_RX[3] = DID_NOT_SUPORT;
+		paddingRule(4);
 	}else
 	{
 		CAN2_DATA_RX[1] += 0x40;
@@ -823,29 +775,23 @@ void getDataResponseService27 (uint8_t* flg)
 	if (*flg == 1)
 	{
 		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = 0x7F;
-		CAN2_DATA_RX[2] = 0x27;
-		CAN2_DATA_RX[3] = 0x13;
-		CAN2_DATA_RX[4] = 0x55;
-		CAN2_DATA_RX[5] = 0x55;
-		CAN2_DATA_RX[6] = 0x55;
-		CAN2_DATA_RX[7] = 0x55;
+		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
+		CAN2_DATA_RX[2] = SERVICEID_$27;
+		CAN2_DATA_RX[3] = MESSAGE_WRONG;
+		paddingRule(4);
 	}else if(*flg == 3)
 	{
 		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = 0x7F;
-		CAN2_DATA_RX[2] = 0x27;
-		CAN2_DATA_RX[3] = 0x35;
-		CAN2_DATA_RX[4] = 0x55;
-		CAN2_DATA_RX[5] = 0x55;
-		CAN2_DATA_RX[6] = 0x55;
-		CAN2_DATA_RX[7] = 0x55;
+		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
+		CAN2_DATA_RX[2] = SERVICEID_$27;
+		CAN2_DATA_RX[3] = INVAILD_KEY;
+		paddingRule(4);
 	}else
 	{
 		if(Num_Consecutive_Tester == 1)
 		{
 			CAN2_DATA_RX[0] = 0x06;
-			CAN2_DATA_RX[1] = 0x67;
+			CAN2_DATA_RX[1] = SERVICEID_$27 + 0x40;
 			CAN2_DATA_RX[2] = 0x01;
 			CAN2_DATA_RX[3] = SEED_SERVER[0];
 			CAN2_DATA_RX[4] = SEED_SERVER[1];
@@ -856,14 +802,11 @@ void getDataResponseService27 (uint8_t* flg)
 		else
 		{
 			CAN2_DATA_RX[0] = 0x02;
-			CAN2_DATA_RX[1] = 0x67;
+			CAN2_DATA_RX[1] = SERVICEID_$27 + 0x40;
 			CAN2_DATA_RX[2] = 0x02;
-			CAN2_DATA_RX[3] = 0x55;
-			CAN2_DATA_RX[4] = 0x55;
-			CAN2_DATA_RX[5] = 0x55;
-			CAN2_DATA_RX[6] = 0x55;
-			CAN2_DATA_RX[7] = 0x55;
+			paddingRule(5);
 			flg_Access_Security = 1;
+
 		}
 	}
 	*flg = 0;
@@ -904,43 +847,29 @@ void getDataResponseService2E (uint8_t* flg)
 	if (*flg == 1)
 	{
 		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = 0x7F;
-		CAN2_DATA_RX[2] = 0x2E;
-		CAN2_DATA_RX[3] = 0x13;
-		CAN2_DATA_RX[4] = 0x55;
-		CAN2_DATA_RX[5] = 0x55;
-		CAN2_DATA_RX[6] = 0x55;
-		CAN2_DATA_RX[7] = 0x55;
+		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
+		CAN2_DATA_RX[2] = SERVICEID_$2E;
+		CAN2_DATA_RX[3] = MESSAGE_WRONG;
+		paddingRule(4);
 	}else if (*flg == 2)
 	{
 		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = 0x7F;
-		CAN2_DATA_RX[2] = 0x2E;
-		CAN2_DATA_RX[3] = 0x31;
-		CAN2_DATA_RX[4] = 0x55;
-		CAN2_DATA_RX[5] = 0x55;
-		CAN2_DATA_RX[6] = 0x55;
-		CAN2_DATA_RX[7] = 0x55;
+		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
+		CAN2_DATA_RX[2] = SERVICEID_$2E;
+		CAN2_DATA_RX[3] = DID_NOT_SUPORT;
+		paddingRule(4);
 	}else if (*flg == 4)
 	{
 		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = 0x7F;
-		CAN2_DATA_RX[2] = 0x2E;
-		CAN2_DATA_RX[3] = 0x33;
-		CAN2_DATA_RX[4] = 0x55;
-		CAN2_DATA_RX[5] = 0x55;
-		CAN2_DATA_RX[6] = 0x55;
-		CAN2_DATA_RX[7] = 0x55;
+		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
+		CAN2_DATA_RX[2] = SERVICEID_$2E;
+		CAN2_DATA_RX[3] = SECURITY_ACCESS_DENIED;
+		paddingRule(4);
 	}else
 	{
 		CAN2_DATA_RX[0] = 0x01;
-		CAN2_DATA_RX[1] = 0x6E;
-		CAN2_DATA_RX[2] = 0x55;
-		CAN2_DATA_RX[3] = 0x55;
-		CAN2_DATA_RX[4] = 0x55;
-		CAN2_DATA_RX[5] = 0x55;
-		CAN2_DATA_RX[6] = 0x55;
-		CAN2_DATA_RX[7] = 0x55;
+		CAN2_DATA_RX[1] = SERVICEID_$2E + 0x40;
+		paddingRule(6);
 
 	}
 	*flg = 0;
@@ -948,6 +877,42 @@ void getDataResponseService2E (uint8_t* flg)
 void updateNewID(uint32_t* CAN_ID)
 {
 	*CAN_ID = newID;
+}
+void paddingRule(uint8_t lengthPadding)
+{
+	uint8_t pos = 8 - lengthPadding;
+	for(uint8_t i = pos; i < 8; i++)
+	{
+		CAN2_DATA_RX[i] = 0x55;
+	}
+}
+void getDataViaUart3AndPrint()
+{
+	// Receive data from UART3 and process data to DATA_CAN1_TX
+	CAN1_DATA_TX[0] = REQ_BUFFER[7];
+	for(uint8_t i = 1; i < 8; i++)
+	{
+		if (REQ_BUFFER[i - 1] != 0x00)
+		{
+			CAN1_DATA_TX[i] = REQ_BUFFER[i - 1];
+		}else
+		{
+				CAN1_DATA_TX[i] = 0x55;
+		}
+
+	}
+	delay(500);
+	printRequest();
+	// Transmit to server(CAN2)
+	transmitDataCan1();
+	PrintCANLog(CAN2_pHeaderRx.StdId, CAN2_DATA_RX);
+}
+void securityAccessUnlock()
+{
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, 1);
+	delay(5000);
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, 0);
+	delay(1000);
 }
 /* USER CODE END 4 */
 
