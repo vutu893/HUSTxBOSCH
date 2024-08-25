@@ -176,6 +176,11 @@ void paddingRule(uint8_t lengthPadding);
 void securityAccessUnlock();
 void getDataViaUart3AndPrint();
 void negativeResponseService(uint8_t SERVICE, uint8_t NRC);
+
+// Run services
+void runService22();
+void runService27();
+void runService2E();
 /* USER CODE END 0 */
 
 /**
@@ -255,29 +260,13 @@ int main(void)
 	  }
 	  HAL_UART_Receive_IT(&huart3, &REQ_1BYTE_DATA, 1);
 	  delay(1000);
-	  if(REQ_BUFFER[0] == 0x22)
-	  {
-		  SID_22_Practice();
-		  delay(200);
-	  }else	if(REQ_BUFFER[0] == 0x27)
-	  {
-		  Num_Consecutive_Tester ++;
-		  SID_27_Practice();
-		  if (flg_Access_Security)
-		  {
-			  securityAccessUnlock();
-			  flg_Access_Security = 0;
-			  flg_Access_Security_Service2E = 1;
-			  Flg_Consecutive = 1;
-		  }
-		  delay(200);
-	  }else if (REQ_BUFFER[0] == 0x2E)
-	  {
-		  SID_2E_Practice();
-	  }else
-	  {
+	  switch (REQ_BUFFER[0])
+	 {
+	  case 0x22: runService22();
+	  case 0x27: runService27();
+	  case 0x2E: runService2E();
+	 }
 
-	  }
 	  memset(&REQ_BUFFER,0x00,8);
 	  NumBytesReq = 0;
 
@@ -900,6 +889,29 @@ void negativeResponseService(uint8_t SERVICE, uint8_t NRC)
 	CAN2_DATA_RX[2] = SERVICE;
 	CAN2_DATA_RX[3] = NRC;
 	paddingRule(4);
+}
+void runService22 ()
+{
+	SID_22_Practice();
+	delay(200);
+}
+
+void runService27 ()
+{
+	Num_Consecutive_Tester ++;
+	SID_27_Practice();
+	if (flg_Access_Security)
+	{
+		securityAccessUnlock();
+		flg_Access_Security = 0;
+		flg_Access_Security_Service2E = 1;
+		Flg_Consecutive = 1;
+	}
+	delay(200);
+}
+void runService2E ()
+{
+	SID_2E_Practice();
 }
 /* USER CODE END 4 */
 
