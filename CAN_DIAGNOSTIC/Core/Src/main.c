@@ -260,11 +260,19 @@ int main(void)
 	  }
 	  HAL_UART_Receive_IT(&huart3, &REQ_1BYTE_DATA, 1);
 	  delay(1000);
+
 	  switch (REQ_BUFFER[0])
 	 {
-	  case 0x22: runService22();
-	  case 0x27: runService27();
-	  case 0x2E: runService2E();
+	  case 0x22:
+		  runService22();
+		  break;
+	  case 0x27:
+		  runService27();
+		  break;
+	  case 0x2E:
+		  runService2E();
+		  break;
+	  default: break;
 	 }
 
 	  memset(&REQ_BUFFER,0x00,8);
