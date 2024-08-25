@@ -88,6 +88,7 @@ uint8_t  REQ_1BYTE_DATA;
 uint8_t sizedata;
 uint8_t flg_check_receive_data = 0;
 
+// data transmit and receive of CAN
 uint8_t CAN1_DATA_TX[8];
 uint8_t CAN1_DATA_RX[8];
 uint8_t CAN2_DATA_TX[8];
@@ -99,7 +100,8 @@ uint8_t  Flg_Consecutive = 0;
 //flag check  Receive data
 uint8_t flg_CheckCan1Rx = 0;
 uint8_t flg_CheckCan2Rx = 0;
-// flg_NRC:
+
+// flg_NRC :
 // 1: wrong message
 // 2: DID not suport
 // 3: invaild key
@@ -111,6 +113,7 @@ uint8_t flg_Access_Security_Service2E = 0;
 
 uint16_t newID = 0x0000;
 uint16_t newIDTmp = 0x0000;
+
 unsigned int TimeStamp;
 // maximum characters send out via UART is 30
 char bufsend[30]="XXX: D1 D2 D3 D4 D5 D6 D7 D8  ";
@@ -131,7 +134,7 @@ void SID_22_Practice();
 void SID_2E_Practice();
 void SID_27_Practice();
 void delay(uint16_t delay);
-void getDataViaUart3AndPrint();
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -140,7 +143,7 @@ void getDataViaUart3AndPrint();
 // Callback function when press button on GPIO PIN 1(A1)
 
 
-//
+// callback function when receive data CAN
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
 {
 	if(flg_CheckCan2Rx)
@@ -164,13 +167,15 @@ void getDataResponseService22 (uint8_t* flg);
 void getDataResponseService27 (uint8_t* flg);
 void getDataResponseService2E(uint8_t* flg);
 
-// process key and seed
+// Use process Services
 uint8_t get_Flg_Check_Key();
 void generate_Key_Client();
 void get_Seed_Server();
 void updateNewID();
 void paddingRule(uint8_t lengthPadding);
 void securityAccessUnlock();
+void getDataViaUart3AndPrint();
+void negativeResponseService(uint8_t SERVICE, uint8_t NRC);
 /* USER CODE END 0 */
 
 /**
@@ -266,12 +271,12 @@ int main(void)
 			  Flg_Consecutive = 1;
 		  }
 		  delay(200);
+	  }else if (REQ_BUFFER[0] == 0x2E)
+	  {
+		  SID_2E_Practice();
 	  }else
 	  {
-		  if (REQ_BUFFER[0] == 0x2E)
-		  {
-			  SID_2E_Practice();
-		  }
+
 	  }
 	  memset(&REQ_BUFFER,0x00,8);
 	  NumBytesReq = 0;
@@ -721,15 +726,7 @@ void SID_27_Practice()
 	memset(&CAN2_DATA_RX, 0x00, 8);
 }
 
-//// Print log request and response:
-// request: CAN1 receive from USART3 and store to CAN1_DATA_TX
-// response: be generated in CAN2 and via CAN communication be stored to CAN1_DATA_RX
-// use CAN because requirement: must have ID CAN2 in DATA response ?right?
-////padding
-//void paddingData(uint8_t quantityPadding, uint8_t * data)
-//{
-//
-//}
+// Function transmit data to UART (hercules)
 void printRequest()
 {
 	USART3_SendString((uint8_t *) "TESTER: ");
@@ -742,27 +739,19 @@ void printResponse()
 	USART3_SendString((uint8_t *) "\n");
 
 }
-// Process data for services
-// Transmit to server for services
-// Process response for services
+
+// ---> Process response for services
 void getDataResponseService22 (uint8_t* flg)
 {
 	if (*flg == 1)
 	{
-		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
-		CAN2_DATA_RX[2] = SERVICEID_$22;
-		CAN2_DATA_RX[3] = MESSAGE_WRONG;
-		paddingRule(4);
+		negativeResponseService(SERVICEID_$22, MESSAGE_WRONG);
 	}else if(*flg == 2)
 	{
-		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
-		CAN2_DATA_RX[2] = SERVICEID_$22;
-		CAN2_DATA_RX[3] = DID_NOT_SUPORT;
-		paddingRule(4);
+		negativeResponseService(SERVICEID_$22, DID_NOT_SUPORT);
 	}else
 	{
+		// Positive response for Service 22
 		CAN2_DATA_RX[1] += 0x40;
 		CAN2_DATA_RX[0] = 0x05;
 		CAN2_DATA_RX[4] = (uint8_t)((CAN2_pHeaderTx.StdId >> 8) & 0x00FF);
@@ -774,22 +763,15 @@ void getDataResponseService27 (uint8_t* flg)
 {
 	if (*flg == 1)
 	{
-		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
-		CAN2_DATA_RX[2] = SERVICEID_$27;
-		CAN2_DATA_RX[3] = MESSAGE_WRONG;
-		paddingRule(4);
+		negativeResponseService(SERVICEID_$27, MESSAGE_WRONG);
 	}else if(*flg == 3)
 	{
-		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
-		CAN2_DATA_RX[2] = SERVICEID_$27;
-		CAN2_DATA_RX[3] = INVAILD_KEY;
-		paddingRule(4);
+		negativeResponseService(SERVICEID_$27, INVAILD_KEY);
 	}else
 	{
 		if(Num_Consecutive_Tester == 1)
 		{
+			// Positive response for RequestSeed
 			CAN2_DATA_RX[0] = 0x06;
 			CAN2_DATA_RX[1] = SERVICEID_$27 + 0x40;
 			CAN2_DATA_RX[2] = 0x01;
@@ -801,6 +783,7 @@ void getDataResponseService27 (uint8_t* flg)
 		}
 		else
 		{
+			// Positive response for RequestKey
 			CAN2_DATA_RX[0] = 0x02;
 			CAN2_DATA_RX[1] = SERVICEID_$27 + 0x40;
 			CAN2_DATA_RX[2] = 0x02;
@@ -846,27 +829,16 @@ void getDataResponseService2E (uint8_t* flg)
 {
 	if (*flg == 1)
 	{
-		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
-		CAN2_DATA_RX[2] = SERVICEID_$2E;
-		CAN2_DATA_RX[3] = MESSAGE_WRONG;
-		paddingRule(4);
+		negativeResponseService(SERVICEID_$2E, MESSAGE_WRONG);
 	}else if (*flg == 2)
 	{
-		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
-		CAN2_DATA_RX[2] = SERVICEID_$2E;
-		CAN2_DATA_RX[3] = DID_NOT_SUPORT;
-		paddingRule(4);
+		negativeResponseService(SERVICEID_$2E, DID_NOT_SUPORT);
 	}else if (*flg == 4)
 	{
-		CAN2_DATA_RX[0] = 0x03;
-		CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
-		CAN2_DATA_RX[2] = SERVICEID_$2E;
-		CAN2_DATA_RX[3] = SECURITY_ACCESS_DENIED;
-		paddingRule(4);
+		negativeResponseService(SERVICEID_$2E, SECURITY_ACCESS_DENIED);
 	}else
 	{
+		// Positive response for service 2E
 		CAN2_DATA_RX[0] = 0x01;
 		CAN2_DATA_RX[1] = SERVICEID_$2E + 0x40;
 		paddingRule(6);
@@ -874,10 +846,12 @@ void getDataResponseService2E (uint8_t* flg)
 	}
 	*flg = 0;
 }
+// after press button , CANID2 (server) update
 void updateNewID(uint32_t* CAN_ID)
 {
 	*CAN_ID = newID;
 }
+// Padding 0x55
 void paddingRule(uint8_t lengthPadding)
 {
 	uint8_t pos = 8 - lengthPadding;
@@ -886,6 +860,8 @@ void paddingRule(uint8_t lengthPadding)
 		CAN2_DATA_RX[i] = 0x55;
 	}
 }
+
+// Receive data be transmitted via Hercules
 void getDataViaUart3AndPrint()
 {
 	// Receive data from UART3 and process data to DATA_CAN1_TX
@@ -907,12 +883,23 @@ void getDataViaUart3AndPrint()
 	transmitDataCan1();
 	PrintCANLog(CAN2_pHeaderRx.StdId, CAN2_DATA_RX);
 }
+// after unlock service 27
 void securityAccessUnlock()
 {
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, 1);
 	delay(5000);
 	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, 0);
 	delay(1000);
+}
+
+// response negative for services
+void negativeResponseService(uint8_t SERVICE, uint8_t NRC)
+{
+	CAN2_DATA_RX[0] = 0x03;
+	CAN2_DATA_RX[1] = RESPONSE_NEGATIVE;
+	CAN2_DATA_RX[2] = SERVICE;
+	CAN2_DATA_RX[3] = NRC;
+	paddingRule(4);
 }
 /* USER CODE END 4 */
 
